@@ -1,0 +1,22 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "This is React learning app ",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ansh3102/Namaste-react"
+  },
+  "keywords": [
+    "namaste",
+    "react"
+  ],
+  "author": "Anshul",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.12.0"
+  }
+}
