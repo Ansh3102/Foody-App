@@ -8,7 +8,7 @@ import RestaurantCategory from "./RestaurantCategories";
 
 
 
-const RestaurantMenu = ()=>{
+const RestaurantMenu = ({setAutoButton})=>{
 
     
     const {resId} = useParams();  
@@ -42,7 +42,7 @@ if(resInfo === null){
                         showItems = {index === showIndex ? true : false}
                         setCloseItems = {()=> setCloseItems(null)}
                         setShowIndex = {()=> !closeItems ? setShowIndex(index) : setShowIndex(null) }
-                        
+                        setAutoButton = {setAutoButton}
                         />
                     ))}
             </div>

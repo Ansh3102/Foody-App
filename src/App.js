@@ -9,6 +9,9 @@ import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { lazy , Suspense} from "react";
 import Shimmer from "./components/Shimmer";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 // import Grocery from "./components/Grocery";
 //console.log(resObj[0].card)
 
@@ -21,15 +24,19 @@ import Shimmer from "./components/Shimmer";
 
 //Lazy function 
 const Grocery = lazy(()=> import("./components/Grocery")); 
+
 const AppLayout = () =>{
     return (
+        <Provider store={appStore}>
         <div className="Layout">
             <Header/>
            <Outlet/>
         </div>
-        
+        </Provider>
+
     );
 };
+
 
 const appRouter = createBrowserRouter([
     {
@@ -59,7 +66,11 @@ const appRouter = createBrowserRouter([
             },
             {
                 path:"/restaurant/:resId",
-                element : <RestaurantMenu/>,
+                element : <RestaurantMenu setAutoButton = {true}/>,
+            }, 
+            {
+                path:"/cart", 
+                element : <Cart addButton = {false}/>
             }
         ],
         errorElement : <Error/>,   

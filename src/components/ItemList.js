@@ -1,6 +1,19 @@
+import { useDispatch } from "react-redux";
 import { CDN_LINK } from "../utils/constants";
+import { addItem } from "../utils/cartSlice";
+import { useState } from "react";
 
-const ItemList = ( {items} )=>{
+const ItemList = ( {items , setAutoButton} )=>{
+    
+     
+    
+
+    const dispatch = useDispatch(); 
+
+    const handleAddItem = (items)  => { 
+        dispatch(addItem(items)); 
+
+    }
     console.log(items); 
     return(
        
@@ -23,7 +36,9 @@ const ItemList = ( {items} )=>{
                             </div>
                             <div className= "w-2/12">
                             <div className="absolute" >
-                                <button className="bg-white w-[40px] text-ceter mt-2 p-2 text-[10px]  mx-[33px] h-auto shadow-lg m-auto text-green-500">ADD</button>
+                                {setAutoButton && <button onClick={() => handleAddItem(item)} className="bg-white w-[40px] text-ceter mt-2 p-2 text-[10px]  mx-[33px] h-auto shadow-lg m-auto text-green-500">
+                                    ADD
+                                    </button>}
                             </div>
                             <img src={CDN_LINK + item.card.info.imageId} className=" m-auto p-2 w-full"  />
                             </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ItemList from "./ItemList";
 
-const RestaurantCategory = ({data, showItems,  setCloseItems, setShowIndex})=>{
+const RestaurantCategory = ({data, showItems,  setCloseItems, setShowIndex, setAutoButton})=>{
   //console.log(showItems); 
   //console.log(data.itemCards.length);
   
@@ -22,7 +22,7 @@ const RestaurantCategory = ({data, showItems,  setCloseItems, setShowIndex})=>{
            
             <span>{"🔽"}</span>
             </div>
-            {showItems && <ItemList items = {data.itemCards}/>  }
+            {showItems && <ItemList items = {data.itemCards} setAutoButton= {setAutoButton}/>  }
         </div>
     );
 };
